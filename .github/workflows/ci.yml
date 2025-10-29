@@ -17,7 +17,7 @@ jobs:
             - name: Image convert as a tar file
               run: docker save ghcr.io/${{ secrets.GHCR_USERNAME }}/myapp-node:latest -o myapp-node.tar 
             - name: Save Docker image as artifact
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                 name: docker-image
                 path: myapp-node.tar
@@ -29,7 +29,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Download Docker image artifact
-              uses: actions/download-artifact@v3
+              uses: actions/download-artifact@v4s
               with:
                 name: docker-image
             - name: Load Docker image from tar file
