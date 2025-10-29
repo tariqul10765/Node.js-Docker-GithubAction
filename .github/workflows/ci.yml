@@ -46,6 +46,12 @@ jobs:
         needs: push_docker_image
         runs-on: ubuntu-latest
         steps:
+            - name: Download Docker image artifact
+              uses: actions/download-artifact@v4
+              with:
+                name: docker-image
+            - name: Load Docker image from tar file
+              run: docker load -i myapp-node.tar
             - name: Deploy to Render.com
               uses: render-examples/render-github-actions@v1
               with:
