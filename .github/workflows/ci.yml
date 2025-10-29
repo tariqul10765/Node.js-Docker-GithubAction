@@ -15,7 +15,7 @@ jobs:
             - name: Build Docker image
               run: docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/myapp-node:latest .
             - name: List Docker images
-              run: docker ps -a
+              run: docker images
     push_docker_image:
         needs: build
         runs-on: ubuntu-latest
