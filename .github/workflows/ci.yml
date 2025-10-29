@@ -43,7 +43,7 @@ jobs:
             - name: Push Docker image to GitHub Container Registry
               run: docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/myapp-node:latest
     deploy:
-        # needs: push_docker_image
+        needs: build
         runs-on: ubuntu-latest
         steps:
             - name: Trigger Render.com deploy
