@@ -25,7 +25,7 @@ jobs:
                 username: ${{ secrets.GHCR_USERNAME }}
                 password: ${{ secrets.GHCR_TOKEN }}
             - name: Push Docker image to GitHub Container Registry
-              run: docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/myapp-node:latest .
+              run: docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/myapp-node:latest
     deploy:
         needs: push_docker_image
         runs-on: ubuntu-latest
